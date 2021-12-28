@@ -1,26 +1,30 @@
 import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Changer } from "./Changer"
 
-const Product = (props) => {
+const Product = ({ product }) => {
+	const dispatch = useDispatch()
+
+	const lineItems = useSelector(state=>state.lineItems)
+
 	return (
 		<div className="card" style={{ width: '18rem' }}>
 			<img
 				style={{ minHeight: '250px' }}
-				src={`/assets/${props.product.image_url}`}
+				src={`/assets/${product.image_url}`}
 				className="card-img-top"
 				alt="..." />
 			<div className="card-body">
-				<h5 className="card-title">{props.product.name}</h5>
-				<p className="card-text">{props.product.price} $</p>
-				{props.button.active ?
-					<button onClick={() =>
-						props.addToCart(props.product)}
-						className="btn btn-primary">Add to cart
-					</button> :
-					<button className="btn btn-secondary">Added</button>}
+				<h5 className="card-title">{product.name}</h5>
+				<p className="card-text">{product.price} $</p>
+				<Changer /> 
+				<button onClick={() =>
+					dispatch({ type: 'add', payload: product })}
+					className="btn btn-primary">Add to cart
+				</button>
 			</div>
 		</div>
 	)
-
 }
 
 export default Product

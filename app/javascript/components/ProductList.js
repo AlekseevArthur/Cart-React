@@ -1,16 +1,14 @@
 import React, { useState } from "react"
 import Product from './Product'
 
-const ProductList = (props) => {
-
+const ProductList = ({products}) => {
   return <div style={{ display: 'flex' }}>
     {
-      props.products.map((product, key) =>
+
+      products.map((product, key) =>
         <Product
-          addToCart={props.addToCart}
           key={key}
-          product={product}
-          button={props.buttons.find(x => x.id == product.id)} />
+          product={product} />
       )
     }
   </div>

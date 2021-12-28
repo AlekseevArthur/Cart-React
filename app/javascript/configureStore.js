@@ -1,37 +1,37 @@
 import { createStore } from 'redux'
 import { lineItemConstructor, getTotalPrice } from "./utilities"
-
+import { getProducts } from './utilities'
 
 const initialState = {
-  products: [],
+  products: getProducts(),
   totalPrice: 0
 }
 
 const rootReducer = (state, action) => {
   switch (action.type) {
     case 'add': {
+      let newProducts = [...state.products]
+      newProducts.find(x => x.id == action.payload).inCart = true
       return {
-        lineItems: [
-          ...state.lineItems,
-          lineItemConstructor(action.payload)
-        ],
-        totalPrice: state.totalPrice + action.payload.price
+        products: newProducts,
+        totalPrice: getTotalPrice(newProducts)
       }
     }
     case 'delete': {
-      let newItems = [...state.lineItems]
-      newItems.splice(action.payload, 1)
+      let newItems = [...state.products]
+      let id = action.payload
+      newItems.find(x => x.id === id).inCart = false
       return {
-        lineItems: newItems,
+        products: newItems,
         totalPrice: getTotalPrice(newItems)
       }
     }
     case 'setCount': {
       const { id, count } = action.payload
       let newState = { ...state }
-      newState.lineItems[id].count = count
-      newState.totalPrice = getTotalPrice(newState.lineItems)
-      return newState
+      newState.products.find(x => x.id === id).count = count
+      newState.totalPrice = getTotalPrice(newState.products)
+      return {...newState}
     }
     default:
       return state

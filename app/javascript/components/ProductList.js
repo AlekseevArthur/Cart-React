@@ -1,7 +1,12 @@
 import React, { useState } from "react"
 import Product from './Product'
+import { useSelector } from "react-redux"
 
-const ProductList = ({products}) => {
+
+const ProductList = () => {
+  const products = useSelector(state => state.products)
+  const totalPrice = useSelector((state) => state.totalPrice)
+
   return <div style={{ display: 'flex' }}>
     {
 

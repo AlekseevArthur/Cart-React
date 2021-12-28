@@ -15,7 +15,7 @@ const App = () => {
     <Provider store={store}>
       <Cart />
       <hr />
-      <ProductList products={products} />
+      <ProductList />
     </Provider>)
 }
 

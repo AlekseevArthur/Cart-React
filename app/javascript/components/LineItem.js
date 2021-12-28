@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { Changer } from "./Changer"
 
 
-const LineItem = ({ itemId, item }) => {
+const LineItem = ({ item }) => {
   const dispatch = useDispatch()
 
   return <div className="row border-top border-bottom">
@@ -17,9 +17,9 @@ const LineItem = ({ itemId, item }) => {
           {item.name}
         </div>
       </div>
-      <Changer id={itemId} count={item.count} />
+      <Changer id={item.id} count={item.count} />
       <div className="col">$ {item.price * item.count}
-        <button onClick={() => dispatch({ type: 'delete', payload: itemId })} className="close">&#10005;</button></div>
+        <button onClick={() => dispatch({ type: 'delete', payload: item.id })} className="close">&#10005;</button></div>
     </div>
   </div>
 }

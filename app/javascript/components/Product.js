@@ -4,9 +4,7 @@ import { Changer } from "./Changer"
 
 const Product = ({ product }) => {
 	const dispatch = useDispatch()
-
-	const lineItems = useSelector(state=>state.lineItems)
-
+	
 	return (
 		<div className="card" style={{ width: '18rem' }}>
 			<img
@@ -17,9 +15,9 @@ const Product = ({ product }) => {
 			<div className="card-body">
 				<h5 className="card-title">{product.name}</h5>
 				<p className="card-text">{product.price} $</p>
-				<Changer /> 
+				<Changer id={product.id} count={product.count} />
 				<button onClick={() =>
-					dispatch({ type: 'add', payload: product })}
+					dispatch({ type: 'add', payload: product.id })}
 					className="btn btn-primary">Add to cart
 				</button>
 			</div>

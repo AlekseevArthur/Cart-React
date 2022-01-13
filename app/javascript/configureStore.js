@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import { lineItemConstructor, getTotalPrice } from "./utilities"
+import { getTotalPrice } from "./utilities"
 import { Products } from './utilities'
 
 const initialState = {

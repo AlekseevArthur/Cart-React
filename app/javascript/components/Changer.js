@@ -13,12 +13,12 @@ export const Changer = ({ id, count }) => {
       dispatch({ type: 'setCount', payload: { id: id, count: count - 1 } })
     } else {
       if (e.target.value <= 0) return dispatch({ type: 'setCount', payload: { id: id, count: 1 } })
-      validateNumberField(e.target.value) 
-      ? dispatch({ type: 'setCount', payload: { id: id, count: e.target.value } }) 
-      : null
+      validateNumberField(e.target.value)
+        ? dispatch({ type: 'setCount', payload: { id: id, count: e.target.value } })
+        : null
     }
   }
-
+  
   return (
     <div className="col">
       <button onClick={changeCount} value='-'>-</button>

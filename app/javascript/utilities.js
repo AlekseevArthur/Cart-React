@@ -1,8 +1,8 @@
 
 export const getTotalPrice = (items) => items.filter(it => it.inCart).reduce((res, cur) => res += cur.count * cur.price, 0)
 
-export const getProducts = () => {
-  return ([
+export const Products =
+  [
     {
       id: 1,
       image_url: '1.jpg',
@@ -27,5 +27,4 @@ export const getProducts = () => {
       count: 1,
       inCart: false
     }
-  ])
-}
+  ]

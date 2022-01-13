@@ -1,9 +1,9 @@
 import { createStore } from 'redux'
 import { lineItemConstructor, getTotalPrice } from "./utilities"
-import { getProducts } from './utilities'
+import { Products } from './utilities'
 
 const initialState = {
-  products: getProducts(),
+  products: Products,
   totalPrice: 0
 }
 
@@ -31,7 +31,7 @@ const rootReducer = (state, action) => {
       let newState = { ...state }
       newState.products.find(x => x.id === id).count = count
       newState.totalPrice = getTotalPrice(newState.products)
-      return {...newState}
+      return newState
     }
     default:
       return state

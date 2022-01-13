@@ -194,3 +194,7 @@ a:hover {
     background-position-x: 95%;
     background-position-y: center;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

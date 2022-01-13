@@ -4,8 +4,8 @@ import { useSelector } from "react-redux"
 
 
 const Cart = () => {
-  const lineItems = useSelector((state) => state.products.filter(pr => pr.inCart))
-  const totalPrice = useSelector((state) => state.totalPrice)
+  const lineItems = useSelector(state => state.products.filter(pr => pr.inCart))
+  const totalPrice = useSelector(state => state.totalPrice)
 
   return <div className="card">
     <div className="col cart">

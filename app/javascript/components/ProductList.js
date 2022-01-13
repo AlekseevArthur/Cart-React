@@ -5,7 +5,9 @@ import { useSelector } from "react-redux"
 
 const ProductList = () => {
   const products = useSelector(state => state.products)
-  const totalPrice = useSelector((state) => state.totalPrice)
+
+  // magic
+  const totalPrice = useSelector(state => state.totalPrice)
 
   return <div style={{ display: 'flex' }}>
     {

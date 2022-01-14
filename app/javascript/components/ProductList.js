@@ -6,11 +6,8 @@ import { useSelector } from "react-redux"
 const ProductList = () => {
   const products = useSelector(state => [...state.products])
 
-  // magic
-
   return <div style={{ display: 'flex' }}>
     {
-
       products.map((product, key) =>
         <Product
           key={key}

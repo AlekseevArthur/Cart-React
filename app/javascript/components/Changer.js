@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch } from 'react-redux'
 
 
 export const Changer = ({ id, count }) => {
@@ -21,7 +21,9 @@ export const Changer = ({ id, count }) => {
     <div className="col">
       <button onClick={changeCount} value='-'>-</button>
       <input
-        type='number'
+        type='text'
+        pattern='\d*'
+        maxLength='5'
         onChange={changeCount}
         style={{ width: '50px' }}
         value={count}

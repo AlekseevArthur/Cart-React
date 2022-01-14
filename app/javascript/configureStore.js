@@ -28,10 +28,12 @@ const rootReducer = (state, action) => {
     }
     case 'setCount': {
       const { id, count } = action.payload
-      let newState = { ...state }
-      newState.products.find(x => x.id === id).count = count
-      newState.totalPrice = getTotalPrice(newState.products)
-      return newState
+      let newItems = [...state.products]
+      newItems.find(x => x.id === id).count = count
+      return {
+        products: newItems,
+        totalPrice: getTotalPrice(newItems)
+      }
     }
     default:
       return state

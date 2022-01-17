@@ -6,7 +6,7 @@ export const Changer = ({ id, count }) => {
   const dispatch = useDispatch()
 
   const minusHandle = () => {
-    if (count - 1 <= 0) return dispatch({ type: 'setCount', payload: { id: id, count: 1 } })
+    if (count - 1 != 0) 
     dispatch({ type: 'setCount', payload: { id: id, count: count - 1 } })
   }
 

@@ -21,6 +21,15 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "jest": "^27.4.7",
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "roots": [
+      "app/javascript/tests"
+    ]
   }
 }
